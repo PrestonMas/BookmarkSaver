@@ -9,17 +9,16 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
-    color: #fcfafa;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    color: #333;            
+    margin: 0;
 }
 
 #root {
-  width: 100%;
-  justify-content: center;
-  align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .app-container{
