@@ -46,11 +46,12 @@ export default function App() {
 
   const filteredBookmarks = useMemo(() => {
     return bookmarks.filter((b) => {
-      const category0k = categoryFilter === "All" || b.category === categoryFilter;
+      const categoryOk = categoryFilter === "All" || b.category === categoryFilter;
       const tagOk = !tagFilter || (b.tags || []).includes(tagFilter);
-      return category0k && tag0k;
+      return categoryOk && tagOk;
     });
   }, [bookmarks, categoryFilter, tagFilter]);
+
 
   function handleAddBookmark() {
     const trimmedName = name.trim();
@@ -86,10 +87,11 @@ export default function App() {
       createdAt: Date.now(),
     };
 
-    setBookmarks((prev) => [...prev, { name: trimmedName, url: trimmedUrl }]);
+    setBookmarks((prev) => [newBookmark, ...prev]);
     setName("");
     setUrl("");
     setTagsInput("");
+
   }
 
   function handleRemoveBookmark(id) {
