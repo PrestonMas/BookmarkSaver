@@ -94,3 +94,83 @@ button:hover {
 #bookmark-list button:hover {
     background-color: #c0392b;
 }
+
+/* Filters */
+.filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.filters select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+button.secondary {
+  background-color: #777;
+  padding: 10px;
+}
+
+button.secondary:hover {
+  background-color: #666;
+}
+
+/* Bookmark item layout */
+.bookmark-item {
+  gap: 10px;
+}
+
+.bookmark-main {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  flex: 1;
+}
+
+.meta {
+  margin-top: 6px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.category {
+  font-size: 12px;
+  padding: 4px 8px;
+  border: 1px solid #ddd;
+  border-radius: 999px;
+  background: #fff;
+  color: #333;
+}
+
+.tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  background-color: #eef9f1;
+  color: #27ae60;
+  border: 1px solid #bfe9cd;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.tag:hover {
+  background-color: #dff6e7;
+}
+
+.empty {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #666;
+}
