@@ -128,8 +128,10 @@ export default function App() {
           aria-expanded={open}
         >
           <span className="select-label">{label}</span>
-          <span className="select-value">{active.label}</span>
-          <span className="select-caret" aria-hidden="true" />
+          <div>
+             <span className="select-value">{active.label}</span>
+            <span className="select-caret" aria-hidden="true" />
+          </div>
         </button>
         {open && (
           <ul className="select-menu" role="listbox">
