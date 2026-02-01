@@ -108,6 +108,7 @@ button:hover {
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 14px;
+  color: #333;            
 }
 
 button.secondary {
@@ -117,6 +118,10 @@ button.secondary {
 
 button.secondary:hover {
   background-color: #666;
+}
+
+.input-container select {
+    color: #333;            
 }
 
 /* Bookmark item layout */
