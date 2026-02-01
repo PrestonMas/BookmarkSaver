@@ -190,8 +190,9 @@ button.secondary:hover {
   font-size: 16px;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   justify-content: space-between;
+  flex-wrap: nowrap;
 }
 
 .select-trigger:hover {
@@ -202,12 +203,19 @@ button.secondary:hover {
   font-size: 16px;
   font-weight: 600;
   color: #333; 
+  white-space: nowrap;
+}
+
+.select-display {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
 }
 
 .select-value {
   font-weight: 400;
   color: #2ecc71;
-  flex: 1;
 }
 
 .select-caret {
@@ -216,6 +224,25 @@ button.secondary:hover {
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
   border-top: 6px solid #999;
+}
+
+.filters .select-trigger {
+  background-color: #2ecc71;
+  border-color: #2ecc71;
+  color: #fff;
+}
+
+.filters .select-trigger:hover {
+  background-color: #27ae60;
+}
+
+.filters .select-label,
+.filters .select-value {
+  color: #fff;
+}
+
+.filters .select-caret {
+  border-top-color: #fff;
 }
 
 .select-menu {

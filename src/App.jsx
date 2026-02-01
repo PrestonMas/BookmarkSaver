@@ -128,10 +128,10 @@ export default function App() {
           aria-expanded={open}
         >
           <span className="select-label">{label}</span>
-          <div>
-             <span className="select-value">{active.label}</span>
+          <span className="select-display">
+            <span className="select-value">{active.label}</span>
             <span className="select-caret" aria-hidden="true" />
-          </div>
+          </span>
         </button>
         {open && (
           <ul className="select-menu" role="listbox">
@@ -211,7 +211,7 @@ export default function App() {
         />
 
         <CustomSelect
-          label="Category"
+          label="Add Category"
           value={category}
           options={addCategoryOptions}
           onChange={setCategory}
