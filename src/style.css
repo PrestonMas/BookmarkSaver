@@ -185,7 +185,7 @@ button.secondary:hover {
   padding: 10px 12px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  background: #fff;
+  background-color: #2ecc71;
   color: #333;
   font-size: 16px;
   display: flex;
@@ -201,7 +201,7 @@ button.secondary:hover {
 .select-label {
   font-size: 16px;
   font-weight: 600;
-  color: #333; 
+  color: #FFF; 
 }
 
 .select-value {
