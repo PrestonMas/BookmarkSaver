@@ -86,13 +86,13 @@ button:hover {
     text-decoration: none;
 }
 
-#bookmark-list button {
-    background-color: #e74c3c;
-    padding: 5px 10px;
+#bookmark-list .remove-btn {
+  background-color: #e74c3c;
+  padding: 5px 10px;
 }
 
-#bookmark-list button:hover {
-    background-color: #c0392b;
+#bookmark-list .remove-btn:hover {
+  background-color: #c0392b;
 }
 
 /* Filters */
@@ -150,7 +150,7 @@ button.secondary:hover {
 
 .tag {
   background-color: #eef9f1;
-  color: #27ae60;
+  color: #FFF;
   border: 1px solid #bfe9cd;
   padding: 4px 8px;
   border-radius: 999px;
@@ -193,6 +193,7 @@ button.secondary:hover {
   gap: 10px;
   justify-content: space-between;
   flex-wrap: nowrap;
+  min-width: 0;
 }
 
 .select-trigger:hover {
@@ -211,11 +212,18 @@ button.secondary:hover {
   align-items: center;
   gap: 6px;
   white-space: nowrap;
+  flex: 1;
+  justify-content: flex-end;
+  min-width: 0;
 }
 
 .select-value {
   font-weight: 400;
   color: #2ecc71;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .select-caret {

@@ -256,7 +256,9 @@ export default function App() {
               </div>
             </div>
 
-            <button onClick={() => handleRemoveBookmark(b.id)}>Remove</button>
+            <button className="remove-btn" onClick={() => handleRemoveBookmark(b.id)}>
+              Remove
+            </button>
           </li>
         ))}
       </ul>
