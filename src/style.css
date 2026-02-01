@@ -103,13 +103,6 @@ button:hover {
   flex-wrap: wrap;
 }
 
-.filters select {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 14px;
-}
-
 button.secondary {
   background-color: #777;
   padding: 10px;
@@ -173,4 +166,96 @@ button.secondary:hover {
   margin-top: 10px;
   font-size: 14px;
   color: #666;
+}
+
+/* Custom select */
+.select {
+  position: relative;
+  width: 100%;
+  text-align: left;
+}
+
+.filters .select {
+  flex: 1;
+  min-width: 170px;
+}
+
+.select-trigger {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #fff;
+  color: #333;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: space-between;
+}
+
+.select-trigger:hover {
+  background: #f7f7f7;
+}
+
+.select-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #888;
+}
+
+.select-value {
+  font-weight: 600;
+  color: #2c3e50;
+  flex: 1;
+}
+
+.select-caret {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid #999;
+}
+
+.select-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  padding: 6px;
+  z-index: 10;
+  max-height: 240px;
+  overflow-y: auto;
+}
+
+.select-menu li {
+  list-style: none;
+}
+
+.select-option {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: none;
+  background: transparent;
+  text-align: left;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+}
+
+.select-option:hover {
+  background: #f1f7f2;
+  color: #27ae60;
+}
+
+.select-option.active {
+  background: #2ecc71;
+  color: #fff;
 }

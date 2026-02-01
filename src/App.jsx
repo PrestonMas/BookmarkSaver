@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import "./style.css";
 
 const STORAGE_KEY = "bookmarks_v1";
@@ -102,35 +102,88 @@ export default function App() {
     setTagFilter("");
   }
 
+  function CustomSelect({ label, value, options, onChange }) {
+    const [open, setOpen] = useState(false);
+    const containerRef = useRef(null);
+    const active = options.find((opt) => opt.value === value) || options[0];
+
+    useEffect(() => {
+      function handleClickOutside(event) {
+        if (!containerRef.current?.contains(event.target)) {
+          setOpen(false);
+        }
+      }
+
+      document.addEventListener("mousedown", handleClickOutside);
+      return () => document.removeEventListener("mousedown", handleClickOutside);
+    }, []);
+
+    return (
+      <div className="select" ref={containerRef}>
+        <button
+          className="select-trigger"
+          type="button"
+          onClick={() => setOpen((prev) => !prev)}
+          aria-haspopup="listbox"
+          aria-expanded={open}
+        >
+          <span className="select-label">{label}</span>
+          <span className="select-value">{active.label}</span>
+          <span className="select-caret" aria-hidden="true" />
+        </button>
+        {open && (
+          <ul className="select-menu" role="listbox">
+            {options.map((option) => (
+              <li key={option.value} role="option" aria-selected={option.value === value}>
+                <button
+                  type="button"
+                  className={`select-option${option.value === value ? " active" : ""}`}
+                  onClick={() => {
+                    onChange(option.value);
+                    setOpen(false);
+                  }}
+                >
+                  {option.label}
+                </button>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+    );
+  }
+
+  const categoryOptions = [
+    { value: "All", label: "All Categories" },
+    ...DEFAULT_CATEGORIES.map((c) => ({ value: c, label: c })),
+  ];
+
+  const tagOptions = [
+    { value: "", label: "All Tags" },
+    ...allTags.map((t) => ({ value: t, label: `#${t}` })),
+  ];
+
+  const addCategoryOptions = DEFAULT_CATEGORIES.map((c) => ({ value: c, label: c }));
+
   return (
     <div className="app-container">
       <h1>Bookmark Saver</h1>
 
       {/* Filters */}
       <div className="filters">
-        <select
+        <CustomSelect
+          label="Category"
           value={categoryFilter}
-          onChange={(e) => setCategoryFilter(e.target.value)}
-        >
-          <option value="All">All Categories</option>
-          {DEFAULT_CATEGORIES.map((c) => (
-            <option key={c} value={c}>
-              {c}
-            </option>
-          ))}
-        </select>
+          options={categoryOptions}
+          onChange={setCategoryFilter}
+        />
 
-        <select
+        <CustomSelect
+          label="Tag"
           value={tagFilter}
-          onChange={(e) => setTagFilter(e.target.value)}
-        >
-          <option value="">All Tags</option>
-          {allTags.map((t) => (
-            <option key={t} value={t}>
-              #{t}
-            </option>
-          ))}
-        </select>
+          options={tagOptions}
+          onChange={setTagFilter}
+        />
 
         {tagFilter && (
           <button className="secondary" onClick={clearTagFilter}>
@@ -155,13 +208,12 @@ export default function App() {
           onChange={(e) => setUrl(e.target.value)}
         />
 
-        <select value={category} onChange={(e) => setCategory(e.target.value)}>
-          {DEFAULT_CATEGORIES.map((c) => (
-            <option key={c} value={c}>
-              {c}
-            </option>
-          ))}
-        </select>
+        <CustomSelect
+          label="Category"
+          value={category}
+          options={addCategoryOptions}
+          onChange={setCategory}
+        />
 
         <input
           type="text"
@@ -213,4 +265,3 @@ export default function App() {
     </div>
   );
 }
-
