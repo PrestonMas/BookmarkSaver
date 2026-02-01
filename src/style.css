@@ -79,6 +79,7 @@ button:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 10px;
 }
 
 #bookmark-list a {
@@ -88,7 +89,9 @@ button:hover {
 
 #bookmark-list .remove-btn {
   background-color: #e74c3c;
-  padding: 5px 10px;
+  padding: 6px 12px;
+  font-size: 12px;
+  border-radius: 500px;
 }
 
 #bookmark-list .remove-btn:hover {
@@ -123,6 +126,13 @@ button.secondary:hover {
   align-items: flex-start;
   text-align: left;
   flex: 1;
+  min-width: 0;
+}
+
+.bookmark-main a {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .meta {
@@ -159,7 +169,7 @@ button.secondary:hover {
 }
 
 .tag:hover {
-  background-color: #dff6e7;
+  background-color: #27ae60;;
 }
 
 .empty {
